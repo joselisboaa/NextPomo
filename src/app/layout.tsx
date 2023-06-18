@@ -1,13 +1,13 @@
 import "./globals.css"
 import React from "react";
-import { Roboto } from "next/font/google";
+import { Lato } from "next/font/google";
 import Header from "@/components/Header";
 
 interface IBaseLayout {
   children: React.ReactNode;
 }
 
-const roboto = Roboto({
+const lato = Lato({
   weight: ["400", "700"],
   style: ["normal"],
   subsets: ["latin"],
@@ -21,7 +21,7 @@ export const metadata = {
 
 export default function Layout({ children }: IBaseLayout) {
   return (
-    <html lang="pt-BR" className={roboto.className}>
+    <html lang="pt-BR" className={lato.className}>
       <body className="flex h-screen w-screen flex-col overflow-x-hidden">
         <Header />
         <div className="grow">{children}</div>
