@@ -11,6 +11,7 @@ export { default as PauseActivateWithoutHover } from "@/assets/img/PauseActivate
 export { default as Restart } from "@/assets/img/Restart.svg";
 export { default as Restart2 } from "@/assets/img/Restart2.svg";
 
+export { default as Skip } from "@/assets/img/Skip.svg";
 export { default as RestartDesactivateWithoutHouver } from "@/assets/img/RestartDesactivateWithoutHouver.svg";
 export { default as ResumeDesactivateWithHoverClick } from "@/assets/img/ResumeDesactivateWithHoverClick.png";
 export { default as ResumeDesactivate } from "@/assets/img/ResumeDesactivate.png";
