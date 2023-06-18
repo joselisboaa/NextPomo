@@ -3,6 +3,7 @@ export { default as playIcon } from "@/assets/img/Play.svg";
 export { default as editIcon } from "@/assets/img/Edit.svg";
 export { default as LongRestIcon } from "@/assets/img/LongRest.svg";
 export { default as Logo } from "@/assets/img/Logo.svg";
+export { default as Pomodoro } from "@/assets/img/Pomodoro.svg";
 
 export { default as PauseActivateWithHoverClick } from "@/assets/img/PauseActivateWithHoverClick.png";
 export { default as PauseActivateWithHoverNoClick } from "@/assets/img/PauseActivateWithHoverNoClick.png";
