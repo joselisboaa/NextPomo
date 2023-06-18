@@ -1,4 +1,4 @@
-import "./globals.css"
+import "./globals.css";
 import React from "react";
 import { Lato } from "next/font/google";
 import Header from "@/components/Header";
@@ -24,7 +24,7 @@ export default function Layout({ children }: IBaseLayout) {
     <html lang="pt-BR" className={lato.className}>
       <body className="flex h-screen w-screen flex-col overflow-x-hidden">
         <Header />
-        <div className="grow">{children}</div>
+        <div className="grow bg-tertiary">{children}</div>
       </body>
     </html>
   );
