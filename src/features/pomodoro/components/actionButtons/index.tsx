@@ -1,12 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { Restart, playIcon, PauseActivateWithoutHover, Skip } from "@/assets";
+import {
+  Restart,
+  playIcon,
+  PauseActivateWithoutHover,
+  Skip,
+  RestPlay,
+  RestRestart,
+  RestSkip,
+  RestPause,
+} from "@/assets";
 import { useContext } from "react";
 import { CountDownContext } from "../../contexts/CountDown";
 
 export const ActionButtons = () => {
-  const { setIsPaused } = useContext(CountDownContext);
+  const { setIsPaused, isActive, isRestTime } = useContext(CountDownContext);
 
   const resumePomodoroTimer = () => {
     setIsPaused(false);
@@ -17,15 +26,22 @@ export const ActionButtons = () => {
   };
 
   return (
-    <div className="flex items-center justify-center gap-10">
+    <div className="flex h-[6.25rem] w-[18.75rem] items-center justify-center gap-10">
       <button>
-        <Image src={Restart} alt="Restart timer" />
+        {isRestTime ? <Image src={RestRestart} alt="Restart timer" /> : <Image src={Restart} alt="Restart timer" />}
       </button>
-      <button onClick={resumePomodoroTimer}>
-        <Image src={playIcon} alt="Play timer" />
+      <button
+        onClick={isActive ? pausePomodoroTimer : resumePomodoroTimer}
+        className="flex h-[100px] w-[110px] items-center justify-center"
+      >
+        {isRestTime ? (
+          <Image src={isActive ? RestPause : RestPlay} alt="Play timer" />
+        ) : (
+          <Image src={isActive ? PauseActivateWithoutHover : playIcon} alt="Play timer" />
+        )}
       </button>
       <button>
-        <Image src={Skip} alt="Pause timer" />
+        {isRestTime ? <Image src={RestSkip} alt="Restart timer" /> : <Image src={Skip} alt="Pause timer" />}
       </button>
     </div>
   );
