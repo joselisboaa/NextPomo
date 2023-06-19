@@ -1,16 +1,24 @@
-export const useIntervalTime = (timeInSeconds = 0, paused?: boolean) => {
-  let passedTime = 0;
+import { useEffect, useState } from "react";
 
-  const interval = setInterval(() => {
-    passedTime++;
-    const timeLeft = timeInSeconds - passedTime;
+export const useIntervalTime = (timeInSeconds: number, paused?: boolean) => {
+  const [currentTime, setCurrentTime] = useState<number>(timeInSeconds);
+  let interval: NodeJS.Timer;
 
-    return timeLeft;
-  }, 1000);
+  const intervalTime = () => {
+    interval = setInterval(() => {
+      setCurrentTime((prevTime) => prevTime - 1);
+    }, 1000);
+  };
 
-  if (paused) {
-    clearInterval(interval);
-  }
+  useEffect(() => {
+    if (!paused) {
+      intervalTime();
+    }
 
-  return 0;
+    return () => {
+      clearInterval(interval);
+    };
+  }, [paused]);
+
+  return currentTime;
 };
