@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Pomodoro, ShortRestIcon, LongRestIcon } from "@/assets";
 import { twMerge } from "tailwind-merge";
