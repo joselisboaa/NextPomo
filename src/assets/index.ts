@@ -17,3 +17,8 @@ export { default as ResumeDesactivateWithHoverClick } from "@/assets/img/ResumeD
 export { default as ResumeDesactivate } from "@/assets/img/ResumeDesactivate.png";
 export { default as ShortRestIcon } from "@/assets/img/ShortRest.svg";
 export { default as Thrash } from "@/assets/img/Trash.svg";
+
+export { default as RestSkip } from "@/assets/img/RestSkip.svg";
+export { default as RestRestart } from "@/assets/img/RestRestart.svg";
+export { default as RestPlay } from "@/assets/img/RestPlay.svg";
+export { default as RestPause } from "@/assets/img/RestPause.svg";
