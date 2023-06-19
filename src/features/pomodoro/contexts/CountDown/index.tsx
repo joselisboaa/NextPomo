@@ -22,11 +22,11 @@ export const CountDownContext = createContext({} as ICountDown);
 export const CountDownProvider = ({ children }: Provider) => {
   const [isRestTime, setIsRestTime] = useState<boolean>(false);
   const [isPaused, setIsPaused] = useState<boolean>(true);
-  const standardBreak = 25 * 60;
+  const standardBreak = 25;
 
   const standardTime = useTimeLeft(standardBreak, isPaused);
 
-  const minutes = standardTime.minutes;
+  const minutes = Math.floor(standardTime.minutes);
   const seconds = standardTime.seconds;
 
   const hasFinished = minutes + seconds === 0;
