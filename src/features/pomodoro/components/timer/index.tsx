@@ -14,7 +14,7 @@ export const Timer = () => {
   const minutesTime = minuteLeft + minuteRight;
   const secondsTime = secondLeft + secondRight;
 
-  if (minutes + seconds === 0) {
+  if (minutes + seconds === 0 && pomoStatus.isPaused === false) {
     definePomodoroStatus(isRestTime, true);
   }
 
