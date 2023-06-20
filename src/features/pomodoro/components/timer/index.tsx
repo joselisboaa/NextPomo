@@ -5,7 +5,8 @@ import { twMerge } from "tailwind-merge";
 import { CountDownContext } from "../../contexts/CountDown";
 
 export const Timer = () => {
-  const { isRestTime, minutes, seconds, setIsPaused } = useContext(CountDownContext);
+  const { minutes, seconds, definePomodoroStatus, pomoStatus } = useContext(CountDownContext);
+  const { isRestTime } = pomoStatus;
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, "0").split("");
   const [secondLeft, secondRight] = String(seconds).padStart(2, "0").split("");
@@ -14,7 +15,7 @@ export const Timer = () => {
   const secondsTime = secondLeft + secondRight;
 
   if (minutes + seconds === 0) {
-    setIsPaused(true);
+    definePomodoroStatus(isRestTime, true);
   }
 
   return (

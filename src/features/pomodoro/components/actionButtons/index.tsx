@@ -15,19 +15,20 @@ import { useContext } from "react";
 import { CountDownContext } from "../../contexts/CountDown";
 
 export const ActionButtons = () => {
-  const { setIsPaused, isActive, isRestTime } = useContext(CountDownContext);
+  const { isActive, definePomodoroStatus, pomoStatus, standardBreak } = useContext(CountDownContext);
+  const { isRestTime } = pomoStatus;
 
   const resumePomodoroTimer = () => {
-    setIsPaused(false);
+    definePomodoroStatus(isRestTime, false);
   };
 
   const pausePomodoroTimer = () => {
-    setIsPaused(true);
+    definePomodoroStatus(isRestTime, true);
   };
 
   return (
     <div className="flex h-[6.25rem] w-[18.75rem] items-center justify-center gap-10">
-      <button>
+      <button onClick={() => definePomodoroStatus(isRestTime, true, standardBreak)}>
         {isRestTime ? <Image src={RestRestart} alt="Restart timer" /> : <Image src={Restart} alt="Restart timer" />}
       </button>
       <button
